@@ -1,0 +1,19 @@
+<main class="screen">
+  <h1 class="game-title">Tic Tac Toe PWA Angular</h1>
+  <h3 *ngIf="!winner" class="current-player-title">Current Player: {{ player }}</h3>
+
+  <h2 class="winner-player-title" *ngIf="winner">Player {{ winner }} won the game!</h2>
+
+  <section class="boargame">
+    <app-square
+      *ngFor="let square of squares; let i = index"
+      [value]="square"
+      (click)="makeMove(i)"
+    >
+    </app-square>
+  </section>
+
+  <button class="new-game-button" *ngIf="winner" (click)="newGame()">
+    Start new Game
+  </button>
+</main>

@@ -1,0 +1,22 @@
+main {
+    text-align: center;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    grid-gap: 15px;
+    width: 450px;
+    margin: auto;
+}
+
+.new-game-button {
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: medium;
+    border-radius: 1rem;
+    background-color: green;
+    color: white;
+    font-weight: 600;
+    border: 0;
+}
