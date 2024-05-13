@@ -29,10 +29,10 @@ export class BoardComponent {
   }
 
   canMakeMove(idx: number): boolean {
-    const isThereWonner = !this.winner;
-    const isInsideOfTheBoard = !this.squares[idx];
-    return isThereWonner && isInsideOfTheBoard;
-  }
+    const noWinner = !this.winner;
+    const squareIsEmpty = !this.squares[idx];
+    return noWinner && squareIsEmpty;
+}
 
   makeMove(idx: number) {
     if (this.canMakeMove(idx)) {
