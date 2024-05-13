@@ -1,8 +1,17 @@
 <main class="screen">
   <h1 class="game-title">Tic Tac Toe PWA Angular</h1>
-  <h3 *ngIf="!winner" class="current-player-title">Current Player: {{ player }}</h3>
+ 
+  <ng-container *ngIf="winner">
+    <h2 class="winner-player-title">Player {{ winner }} won the game!</h2>
+  </ng-container>
 
-  <h2 class="winner-player-title" *ngIf="winner">Player {{ winner }} won the game!</h2>
+  <ng-container *ngIf="!winner && noOneWonTheGame()">
+    <h2 class="winner-player-title">No one won the game ...</h2>
+  </ng-container>
+
+  <ng-container *ngIf="!winner && !noOneWonTheGame()">
+    <h3 class="current-player-title">Current Player: {{ player }}</h3>
+  </ng-container>
 
   <section class="boargame">
     <app-square
@@ -13,7 +22,7 @@
     </app-square>
   </section>
 
-  <button class="new-game-button" *ngIf="winner" (click)="newGame()">
+  <button class="new-game-button" *ngIf="winner || noOneWonTheGame()" (click)="newGame()">
     Start new Game
   </button>
 </main>

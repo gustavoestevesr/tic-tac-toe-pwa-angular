@@ -7,7 +7,7 @@ import { SquareComponent } from '../square/square.component';
   standalone: true,
   imports: [CommonModule, SquareComponent],
   templateUrl: './board.component.html',
-  styleUrl: './board.component.scss'
+  styleUrl: './board.component.scss',
 })
 export class BoardComponent {
   squares!: any[];
@@ -28,7 +28,7 @@ export class BoardComponent {
     return this.xIsNext ? 'X' : 'O';
   }
 
-  canMakeMove(idx: number) {
+  canMakeMove(idx: number): boolean {
     const isThereWonner = !this.winner;
     const isInsideOfTheBoard = !this.squares[idx];
     return isThereWonner && isInsideOfTheBoard;
@@ -43,7 +43,14 @@ export class BoardComponent {
     this.winner = this.calculateWinner();
   }
 
-  calculateWinner() {
+  noOneWonTheGame(): boolean {
+    if (this.squares.every((square) => square !== null)) {
+      return true;
+    }
+    return false;
+  }
+
+  calculateWinner(): string {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -52,7 +59,7 @@ export class BoardComponent {
       [1, 4, 7],
       [2, 5, 8],
       [0, 4, 8],
-      [2, 4, 6]
+      [2, 4, 6],
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
