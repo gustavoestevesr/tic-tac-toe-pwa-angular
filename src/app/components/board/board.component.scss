@@ -4,9 +4,9 @@ main {
 
 section {
     display: grid;
-    grid-template-columns: 150px 150px 150px;
+    grid-template-columns: 31% 31% 31%;
     grid-gap: 15px;
-    width: 450px;
+    max-width: 450px;
     margin: auto;
 }
 
