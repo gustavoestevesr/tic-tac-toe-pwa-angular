@@ -59,6 +59,8 @@ npm install
 
 <h3>Running</h3>
 
+How to run your project
+
 ```bash
 Run ng serve for a dev server.
 Navigate to http://localhost:4200/.
